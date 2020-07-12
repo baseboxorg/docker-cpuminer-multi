@@ -23,8 +23,10 @@ RUN set -x \
         make \
         pkg-config \
     # Compile from source code.
- && git clone --recursive https://github.com/tpruvot/cpuminer-multi.git /tmp/cpuminer \
+ && git clone --recursive https://github.com/zcoinofficial/cpuminer.git /tmp/cpuminer \
  && cd /tmp/cpuminer \
+ && chmod +x autogen.sh \
+ && chmod +x configure \
  && ./autogen.sh \
  && ./configure CFLAGS="-O2 -march=native" --with-crypto --with-curl \
  && make install \
